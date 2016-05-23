@@ -1,6 +1,7 @@
 package com.chris.mordic.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Window;
@@ -39,7 +40,9 @@ public class SplashActivity extends Activity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-
+                Intent intent = new Intent(SplashActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
             }
 
             @Override
@@ -53,8 +56,9 @@ public class SplashActivity extends Activity {
         AlphaAnimation alphaAnimation = new AlphaAnimation(0.5f,1.0f);
         alphaAnimation.setDuration(1000);
         alphaAnimation.setFillAfter(true);
-        mAnimationSet = new AnimationSet(true);
+        mAnimationSet = new AnimationSet(false);
         mAnimationSet.addAnimation(alphaAnimation);
+        mAnimationSet.start();
     }
 
 
